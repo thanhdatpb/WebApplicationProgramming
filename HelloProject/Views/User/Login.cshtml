@@ -1,0 +1,22 @@
+﻿@using HelloProject.ViewModels;
+@model LoginViewModel
+<h1>Đăng nhập hệ thống</h1>
+<form method="get">
+    <div>
+        <label>Tên đăng nhập</label>
+        <input type="text" name="userName" />
+    </div>
+    <div>
+        <label>Mật khẩu</label>
+        <input type="password" name="passWord" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Đăng nhập</button>
+    </div>
+    @if (Model != null)
+    {
+        <div class="alert-danger">
+            @Model.Message
+        </div>
+    }
+</form>

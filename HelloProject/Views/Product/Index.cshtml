@@ -1,0 +1,45 @@
+﻿@using HelloProject.ViewModels;
+@model ProductViewModel
+<h1>Danh sách sản phẩm</h1>
+<form method="get">
+    <div class="mb-3 row">
+        <label for="keyWord" class="col-sm-2 col-form-label">Tìm kiếm</label>
+        <div class="col-sm-10">
+            <input value="@Model.KeyWord" type="text" name="keyWord" class="form-control" id="keyWord">
+        </div>
+    </div>
+</form>
+<div>
+    <table class="table table-bordered table-hover">
+        <tr class="table-success text-center">
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Ngày sản xuất</th>
+            <th>Danh mục</th>
+            <th>Thao tác</th>
+        </tr>
+        @if (Model.Products != null)
+        {
+            int index = 0;
+            @foreach (var item in Model.Products)
+            {
+                index++;
+                <tr>
+                    <td>@index</td>
+                    <td>@item.Name</td>
+                    <td>@item.Price.ToString("N0")</td>
+                    <td>@item.ProductionDate.ToString("dd/MM/yyyy")</td>
+                    <td>@item.Category</td>
+                    <td>
+                        <button class="btn btn-info"><i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td colspan="5">Tổng số sản phẩm là: @Model.Products.Count</td>
+            </tr>
+        }
+    </table>
+</div>
