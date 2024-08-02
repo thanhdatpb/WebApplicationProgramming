@@ -18,5 +18,12 @@ namespace HelloProject.Controllers
             model.Products = service.GetProducts(keyWord);
             return View(model);
         }
+
+        public IActionResult Delete(int id)
+        {
+            //Xoa san pham
+            var rs = ProductService.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
