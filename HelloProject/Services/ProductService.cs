@@ -48,5 +48,10 @@ namespace HelloProject.Services
             }
             return ls;
         }
+
+        public bool Delete(int id)
+        {
+            var p = products.Where(x=>x.Id == id).FirstOrDefault();
+        }
     }
 }
